@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import datanapps.recycleviewexample.multiview.models.BaseItems
 import datanapps.recycleviewexample.multiview.models.ItemVH
-import datanapps.recycleviewexample.multiview.models.ItemLabel
 import datanapps.recycleviewexample.multiview.adapter.OnMultiviewItemClickListener
 
 /*
@@ -24,14 +23,6 @@ import datanapps.recycleviewexample.multiview.adapter.OnMultiviewItemClickListen
             }
         }
     }
-
-   /* private val menuItemClickListener = object : OnMultiviewItemClickListener {
-        override fun onItemClick(data: Any) {
-            when(data) {
-                is ItemLabel -> itemClickListener.onItemClick(data)
-            }
-        }
-    }*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemVH {
         val creator = ItemVH.CREATORS[viewType]

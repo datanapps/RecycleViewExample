@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    >
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_image"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_horizontal_degree"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:srcCompat="@color/teal_700"
-        app:layout_constraintDimensionRatio="h, 4:3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

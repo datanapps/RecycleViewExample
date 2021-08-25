@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_5">5dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+
+</resources>

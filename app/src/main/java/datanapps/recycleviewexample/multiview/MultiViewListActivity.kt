@@ -5,7 +5,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import datanapps.recycleviewexample.databinding.ActivityMainBinding
 import datanapps.recycleviewexample.multiview.adapter.OnMultiviewItemClickListener
-import datanapps.recycleviewexample.multiview.models.*
+import datanapps.recycleviewexample.multiview.models.BaseItems
+import datanapps.recycleviewexample.multiview.models.ItemDivider
+import datanapps.recycleviewexample.multiview.models.ItemImage
+import datanapps.recycleviewexample.multiview.models.ItemLabel
 
 class MultiViewListActivity : AppCompatActivity() {
 
@@ -25,7 +28,7 @@ class MultiViewListActivity : AppCompatActivity() {
     }
 
     /*
-    * PLease enable layout size in ItemVH.kt
+    * PLease enable layout size in DegreeVH.kt
     *  // view.layoutParams = view.height80()
     *
     * */
@@ -56,13 +59,6 @@ class MultiViewListActivity : AppCompatActivity() {
 
                 if(it%5==0) {
                     items.add(ItemImage("https://blogs.datanapps.com/uploads/images/image_750x_6117e51dc82b2.jpg"))
-                }
-
-
-                if(it%3==0) {
-                    items.add(ItemImageDetail("https://blogs.datanapps.com/uploads/images/image_650x433_602395987d532.jpg",
-                    "Image detail $it"
-                        ))
                 }
             }
             // set item in list

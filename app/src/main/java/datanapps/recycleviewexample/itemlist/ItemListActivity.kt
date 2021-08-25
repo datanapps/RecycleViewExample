@@ -59,7 +59,7 @@ class ItemListActivity : AppCompatActivity() {
 
 
     /*
-    * PLease enable layout size in ItemVH.kt
+    * PLease enable layout size in DegreeVH.kt
     *  // view.layoutParams = view.height80()
     *
     * */

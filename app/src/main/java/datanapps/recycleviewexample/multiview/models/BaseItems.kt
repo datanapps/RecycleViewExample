@@ -39,7 +39,7 @@ data class ItemLabel(val title: String?) : BaseItems() {
 }
 
 /**
- * Component's Image
+ * Component's label
  */
 data class ItemImage(val imageUrl: String?) : BaseItems() {
     override val type = ItemImageVH.LAYOUT_ID
@@ -48,18 +48,5 @@ data class ItemImage(val imageUrl: String?) : BaseItems() {
         viewHolder.displayImage(this)
     }
 
-    override fun sameAs(item: BaseItems): Boolean = (item is ItemImage)
-}
-
-/**
- * Component's Image and detail
- */
-data class ItemImageDetail(val imageUrl: String?, val imageDescription: String?) : BaseItems() {
-    override val type = ItemImageDetailVH.LAYOUT_ID
-
-    override fun bind(viewHolder: ItemVH) {
-        viewHolder.displayImageDetail(this)
-    }
-
-    override fun sameAs(item: BaseItems): Boolean = (item is ItemImageDetail)
+    override fun sameAs(item: BaseItems): Boolean = (item is ItemLabel)
 }
