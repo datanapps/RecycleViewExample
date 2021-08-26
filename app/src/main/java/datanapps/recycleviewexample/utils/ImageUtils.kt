@@ -13,15 +13,25 @@ import com.bumptech.glide.request.target.Target
 * Created by Dev_Network_PC on 18/8/2021
 */
 
-fun ImageView.loadImage(url:String?, onLoadImage: ((drawable: Drawable?) -> Unit)? = null) {
-    url?.let {
 
+fun ImageView.loadImage(url:String?) {
+    url?.let {
+        Glide
+            .with(this.context)
+            .load(it)
+            .dontAnimate()
+            .into(this)
+
+    }
+
+}
+fun ImageView.loadImageBitmap(url:String?, onLoadImage: ((drawable: Drawable?) -> Unit)? = null) {
+    url?.let {
         Glide
             .with(this.context)
             .load(it)
             .dontAnimate()
             .listener(object : RequestListener<Drawable> {
-
                 override fun onResourceReady(
                     resource: Drawable?,
                     model: Any?,
@@ -30,7 +40,7 @@ fun ImageView.loadImage(url:String?, onLoadImage: ((drawable: Drawable?) -> Unit
                     isFirstResource: Boolean
                 ): Boolean {
                     onLoadImage?.invoke(resource)
-                    return false
+                    return true
                 }
                 override fun onLoadFailed(
                     e: GlideException?,

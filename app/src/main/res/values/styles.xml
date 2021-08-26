@@ -1,6 +1,9 @@
 <resources>
 
-    <style name="CornerSize50Percent" parent="ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day">
+
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 

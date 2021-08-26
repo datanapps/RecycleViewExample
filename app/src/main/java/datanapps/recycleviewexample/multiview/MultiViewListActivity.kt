@@ -5,10 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import datanapps.recycleviewexample.databinding.ActivityMainBinding
 import datanapps.recycleviewexample.multiview.adapter.OnMultiviewItemClickListener
-import datanapps.recycleviewexample.multiview.models.BaseItems
-import datanapps.recycleviewexample.multiview.models.ItemDivider
-import datanapps.recycleviewexample.multiview.models.ItemImage
-import datanapps.recycleviewexample.multiview.models.ItemLabel
+import datanapps.recycleviewexample.multiview.models.*
 
 class MultiViewListActivity : AppCompatActivity() {
 
@@ -32,7 +29,7 @@ class MultiViewListActivity : AppCompatActivity() {
     *  // view.layoutParams = view.height80()
     *
     * */
-    private fun multiviewListItem(){
+    private fun multiviewListItem() {
         // create adapter
         val adapter = MultiviewItemAdapter(object : OnMultiviewItemClickListener {
             override fun onItemClick(data: Any) {
@@ -52,18 +49,48 @@ class MultiViewListActivity : AppCompatActivity() {
 
 
             // create data set
-            val items = mutableListOf<BaseItems>()
-            (1..20).forEach {
-                items.add(ItemLabel("Label : $it"))
-                items.add(ItemDivider())
 
-                if(it%5==0) {
-                    items.add(ItemImage("https://blogs.datanapps.com/uploads/images/image_750x_6117e51dc82b2.jpg"))
+
+            // set item in list
+            adapter.submitList(loadData())
+        }
+    }
+
+    private fun loadData(): List<BaseItems> {
+        val items = mutableListOf<BaseItems>()
+        (1..20).forEach {
+            when {
+                (it % 5 == 0) -> {
+                    items.add(
+                        ItemImage(
+                            ImageData(
+                                it,
+                                "https://blogs.datanapps.com/uploads/images/image_650x433_6027cde22785c.jpg",
+                                ""
+                            )
+                        )
+                    )
+                }
+                (it % 2 == 0) -> {
+                    items.add(
+                        ItemUser(
+                            UserData(
+                                it,
+                                "John",
+                                "john@gmail.com",
+                                "https://blogs.datanapps.com/uploads/logo/logo_5eaed0862b41e.png"
+                            )
+                        )
+                    )
+                }
+                else -> {
+                    items.add(ItemLabel(LabelData(it, "Label : $it")))
+                    items.add(ItemDivider())
                 }
             }
-            // set item in list
-            adapter.submitList(items)
+
         }
+        return items
     }
 
 

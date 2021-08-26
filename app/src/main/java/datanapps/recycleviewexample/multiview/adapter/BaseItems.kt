@@ -17,7 +17,7 @@ sealed class BaseItems {
 /**
  * Component's label
  */
-data class ItemLabel(val title: String?) : BaseItems() {
+data class ItemLabel(val labelData: LabelData) : BaseItems() {
     override val type = ItemLabelVH.LAYOUT_ID
 
     override fun bind(viewHolder: ItemVH) {
@@ -41,12 +41,26 @@ data class ItemLabel(val title: String?) : BaseItems() {
 /**
  * Component's label
  */
-data class ItemImage(val imageUrl: String?) : BaseItems() {
+data class ItemImage(val imageData: ImageData?) : BaseItems() {
     override val type = ItemImageVH.LAYOUT_ID
 
     override fun bind(viewHolder: ItemVH) {
         viewHolder.displayImage(this)
     }
 
-    override fun sameAs(item: BaseItems): Boolean = (item is ItemLabel)
+    override fun sameAs(item: BaseItems): Boolean = (item is ItemImage)
+}
+
+
+/**
+ * Component's label
+ */
+data class ItemUser(val userdata: UserData?) : BaseItems() {
+    override val type = ItemUserVH.LAYOUT_ID
+
+    override fun bind(viewHolder: ItemVH) {
+        viewHolder.displayUser(this)
+    }
+
+    override fun sameAs(item: BaseItems): Boolean = (item is ItemUser)
 }

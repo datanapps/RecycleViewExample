@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.PagerSnapHelper
 
 import datanapps.example.utils.getCurrentPosition
 import datanapps.example.utils.getRandomInt
@@ -48,8 +47,8 @@ class DegreeListActivity : AppCompatActivity() {
             //recyclerView.addItemDecoration(ItemDecorator(-200))
             recyclerView.adapter = concatAdapter
             recyclerView.setItemViewCacheSize(5)
-            val snapHelper = PagerSnapHelper()
-            //val snapHelper = MultiSnapHelper(SnapGravity.START, 1, 20f)
+            val snapHelper =PagerSnapAndSkipDividerHelper()
+            //val snapHelper = SnapHelper(SnapGravity.START, 1, 20f)
             snapHelper.attachToRecyclerView(recyclerView)
 
             //snapHelper.(recyclerView.layoutManager, getScreenHeight(), 0)

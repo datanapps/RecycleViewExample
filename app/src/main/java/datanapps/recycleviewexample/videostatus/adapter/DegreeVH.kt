@@ -11,6 +11,7 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.util.MimeTypes
 import datanapps.example.utils.getRandomColor
 import datanapps.example.utils.loadImage
+import datanapps.example.utils.loadImageBitmap
 import datanapps.example.utils.setColorFromBitmap
 import datanapps.recycleviewexample.R
 import datanapps.recycleviewexample.databinding.ItemDegreeImageBinding
@@ -83,7 +84,7 @@ class DegreeImageVH(view: View, val itemClickListener: OnDegreeItemClickListener
 
     override fun displayDegreeImageItem(item: DegreeImageItem) {
         super.displayDegreeImageItem(item)
-        binding.ivImageDegree.loadImage(item.degreeImage.imageUrl){
+        binding.ivImageDegree.loadImageBitmap(item.degreeImage.imageUrl){
             it?.let {
                 binding.root.setColorFromBitmap(it)
             }

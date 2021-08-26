@@ -8,6 +8,7 @@ import datanapps.example.utils.loadImage
 import datanapps.recycleviewexample.R
 import datanapps.recycleviewexample.databinding.ItemImageBinding
 import datanapps.recycleviewexample.databinding.ItemLabelBinding
+import datanapps.recycleviewexample.databinding.ItemUserBinding
 import datanapps.recycleviewexample.multiview.adapter.OnMultiviewItemClickListener
 
 
@@ -24,12 +25,15 @@ abstract class ItemVH (itemView: View) : RecyclerView.ViewHolder(itemView) {
             ItemLabelVH.LAYOUT_ID to ItemLabelVH.Companion::create,
             ItemDividerVH.LAYOUT_ID to ItemDividerVH.Companion::create,
             ItemImageVH.LAYOUT_ID to ItemImageVH.Companion::create,
+            ItemUserVH.LAYOUT_ID to ItemUserVH.Companion::create,
+
         )
     }
 
     open fun displayLabel(item: ItemLabel) {}
     open fun displayDivider(item: BaseItems) {}
     open fun displayImage(item: ItemImage) {}
+    open fun displayUser(item: ItemUser) {}
 
 }
 
@@ -51,7 +55,7 @@ class ItemLabelVH(view: View) : ItemVH(view) {
     private val binding = ItemLabelBinding.bind(view)
 
     override fun displayLabel(item: ItemLabel) {
-        binding.tvLabel.text = item.title
+        binding.tvLabel.text = item.labelData.label
     }
 }
 
@@ -70,7 +74,7 @@ class ItemDividerVH(view: View) : ItemVH(view) {
 
 
 /**
- * ViewHolder corresponds to [ItemIMage]
+ * ViewHolder corresponds to [ItemImage]
  */
 class ItemImageVH(view: View) : ItemVH(view) {
 
@@ -88,7 +92,33 @@ class ItemImageVH(view: View) : ItemVH(view) {
 
     override fun displayImage(item: ItemImage) {
         super.displayImage(item)
+        binding.ivImage.loadImage(item.imageData?.imageUrl)
+    }
+}
 
-        binding.ivImage.loadImage(item.imageUrl)
+
+
+/**
+ * ViewHolder corresponds to [ItemIMage]
+ */
+class ItemUserVH(view: View) : ItemVH(view) {
+
+    companion object {
+        const val LAYOUT_ID = R.layout.item_user
+
+        @Suppress("UNUSED_PARAMETER")
+        fun create(parent: ViewGroup, itemClickListener: OnMultiviewItemClickListener): ItemVH {
+            val view = LayoutInflater.from(parent.context).inflate(LAYOUT_ID, parent, false)
+            return ItemUserVH(view)
+        }
+    }
+
+    private val binding = ItemUserBinding.bind(view)
+
+    override fun displayUser(item: ItemUser) {
+        super.displayUser(item)
+        binding.ivImage.loadImage(item.userdata?.image)
+        binding.tvUserName.text = item.userdata?.name
+        binding.tvUserEmail.text = item.userdata?.email
     }
 }

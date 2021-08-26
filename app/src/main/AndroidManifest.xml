@@ -19,7 +19,7 @@
         <!--   android:name=".videostatus.DegreeListActivity"   -->
 
         <activity
-            android:name=".videostatus.DegreeListActivity"
+            android:name=".itemlist.ItemListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

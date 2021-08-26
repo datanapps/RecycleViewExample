@@ -8,8 +8,8 @@
     <TextView
         android:id="@+id/tv_label"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/design_default_color_error"
+        android:layout_height="1dp"
+        android:background="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
