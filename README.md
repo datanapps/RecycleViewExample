@@ -2,8 +2,18 @@
 
 Recycle view for SIMPLE LIST, MULTIVIEW, STATUS(whatsapp, youtube and many more.) 
 
+## LIST
+<img src="https://github.com/datanapps/RecycleViewExample/blob/main/screens/simple_list_item.png" height="500" width="250"> 
 
-<img src="https://github.com/datanapps/CapTextView/blob/main/screen/screen1.png" height="500" width="250"> 
+
+
+## PARTIALLY VISIBLE NEXT ITEM
+<img src="https://github.com/datanapps/RecycleViewExample/blob/main/screens/partially_visible.png" height="500" width="250"> 
+
+
+
+## MULTIVIEW
+<img src="https://github.com/datanapps/RecycleViewExample/blob/main/screens/multiview_1.png" height="500" width="250"> 
 
 
 
