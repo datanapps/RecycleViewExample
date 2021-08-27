@@ -5,6 +5,30 @@ Recycle view for SIMPLE LIST, MULTIVIEW, STATUS(whatsapp, youtube and many more.
 ## LIST
 <img src="https://github.com/datanapps/RecycleViewExample/blob/main/screens/simple_list_item.png" height="500" width="250"> 
 
+### Follow Package name : datanapps.recycleviewexample.itemlist.ItemListActivity
+
+           private fun simpleItemList(){
+                  // create adapter
+                  val adapter = ItemAdapter(object : OnItemRowClickListener {
+                      override fun onItemRowClick(itemData: ItemData) {
+                          Log.d("asd", "Item Clicked ${itemData.description}")
+                      }
+                  })
+                  binding.run {
+
+                      // set adapter in recycle view
+                      recyclerView.adapter = adapter
+
+                      // create data set
+                      val items = mutableListOf<Item>()
+                      (1..20).forEach {
+                          items.add(Item(ItemData(it, "description $it")))
+                      }
+                      // set item in list
+                      adapter.submitList(items)
+                  }
+              }
+
 
 
 ## PARTIALLY VISIBLE NEXT ITEM
