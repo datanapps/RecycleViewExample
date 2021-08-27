@@ -1,6 +1,6 @@
 # RecycleViewExample
 
-Recycle view for SIMPLE LIST, MULTIVIEW, STATUS(whatsapp, youtube and many more.) 
+Recycle view for SIMPLE LIST, PARTALLY VISIBLE, MULTIVIEW, STATUS(whatsapp, youtube and many more.) 
 
 ## LIST
 <img src="https://github.com/datanapps/RecycleViewExample/blob/main/screens/simple_list_item.png" height="500" width="250"> 
